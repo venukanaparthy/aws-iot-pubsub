@@ -1,6 +1,6 @@
 # aws-iot-pubsub
 
-maven clean package
+mvn clean package
 
 subscribe:
 java -jar target/*.jar consume myTopic 
