@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.esri.geoevent.iot.sample</groupId>
+  <artifactId>awsiot-pubsub</artifactId>
+  <version>0.1</version>
+   <dependencies>
+    <dependency>
+		<groupId>org.bouncycastle</groupId>
+		<artifactId>bcpkix-jdk15on</artifactId>
+		<version>1.52</version>
+	</dependency>	
+	<dependency>
+		<groupId>org.bouncycastle</groupId>
+		<artifactId>bcprov-jdk15on</artifactId>
+		<version>1.52</version>
+	</dependency>
+	<dependency>
+	        <groupId>org.eclipse.paho</groupId>
+	        <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+	        <version>1.0.2</version>
+    	</dependency>
+	</dependencies>	
+  <repositories>	
+	<repository>
+        <id>Eclipse Paho Repo</id>
+        <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
+    </repository>
+	</repositories>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source/>
+          <target/>
+        </configuration>
+      </plugin>
+      <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<!-- get all project dependencies -->
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<!-- MainClass in mainfest make a executable jar -->
+					<archive>
+					  <manifest>
+						<mainClass>com.esri.geoevent.iot.sample.Run</mainClass>
+					  </manifest>
+					</archive>
+
+				</configuration>
+				<executions>
+				  <execution>
+					<id>make-assembly</id>
+                                        <!-- bind to the packaging phase -->
+					<phase>package</phase> 
+					<goals>
+						<goal>single</goal>
+					</goals>
+				  </execution>
+				</executions>
+			</plugin>
+      
+    </plugins>  
+  </build>
+  <name>AWS IoT Pub/Sub Sample</name>
+</project>
